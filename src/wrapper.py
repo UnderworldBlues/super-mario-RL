@@ -18,7 +18,7 @@ class CustomRewardAndDoneWrapper(gym.Wrapper):
         return obs
 
     def step(self, action):
-        obs, reward, done, info = self.env.step(action) #lembrar de atualizar reward no futuro
+        obs, _, done, info = self.env.step(action) 
         delta_x = info['x_pos'] - self.current_x
         self.current_x = info['x_pos']
         delta_time = self.current_time - info['time']
